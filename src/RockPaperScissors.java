@@ -29,12 +29,13 @@ public class RockPaperScissors {
 
 
             System.out.println("\n\n\n\n\n\n\n\n");
-            System.out.println("This is a test " + computerAnswer);
+            /*System.out.println("This is a test " + computerAnswer);*/
 
 
 
-            System.out.println("Enter in Rock Paper or Scissors");
+            System.out.println("Enter in Rock Paper or Scissors" + "\n\n\n\n\n\n\n\n");
             userAnswer = keyboard.nextLine().toLowerCase();
+            System.out.println("\n\n");
 
 
 
@@ -75,7 +76,7 @@ public class RockPaperScissors {
                 System.out.println("That is not a valid answer");
             }
 
-            System.out.println("Your points = " + userPoints + "   " + "Computer's points = " + computerPoints);
+            System.out.println("\n" + "Your points = " + userPoints + "   " + "Computer's points = " + computerPoints + "\n");
 
             System.out.println("Would you like to continue? Y/N");
 
