@@ -15,7 +15,8 @@ public class RockPaperScissors {
         userPoints = 0;
         int[] game = {1, 2, 3};
 
-        String stop;
+        String reset;
+
 
         boolean loop = true;
         while (loop) {
@@ -28,15 +29,14 @@ public class RockPaperScissors {
             computerAnswer = (game[(int)(Math.random()*2)]);
 
 
-            System.out.println("\n\n\n\n\n\n\n\n");
-            /*System.out.println("This is a test " + computerAnswer);*/
 
+            if((userPoints == 0)&&(computerPoints == 0)){
+                System.out.println("First to 5 points wins.");
+            }
 
-
-            System.out.println("Enter in Rock Paper or Scissors" + "\n\n\n\n\n\n\n\n");
+            System.out.println("Enter in Rock Paper or Scissors");
             userAnswer = keyboard.nextLine().toLowerCase();
-            System.out.println("\n\n");
-
+            System.out.println("\n\n\n\n\n");
 
 
             if((userAnswer.equals ("rock"))& computerAnswer == 0){
@@ -76,19 +76,46 @@ public class RockPaperScissors {
                 System.out.println("That is not a valid answer");
             }
 
-            System.out.println("\n" + "Your points = " + userPoints + "   " + "Computer's points = " + computerPoints + "\n");
+            System.out.println("\n" + "Your points = " + userPoints + "   " + "Computer's points = " + computerPoints);
 
-            System.out.println("Would you like to continue? Y/N");
 
-            stop = keyboard.nextLine().toLowerCase();
+            boolean end;
+            end = false;
 
-            if (stop.equals("y")){
-                loop = true;
-            } else if (stop.equals("n")){
-                loop = false;
-            } else{
-                loop = true;
+            if (computerPoints == 5) {
+                System.out.println("The computer has 5 points. You lose");
+                end = true;
+            } else if (userPoints == 5) {
+                System.out.println("You reached 5 points. You win!");
+                end = true;
             }
+
+
+
+
+            while (end){
+
+                System.out.println("Would you like to reset? Y/N");
+
+                reset = keyboard.nextLine().toLowerCase();
+
+                if (reset.equals("y")){
+                    loop = true;
+                    end = false;
+
+                    computerPoints = 0;
+                    userPoints = 0;
+                } else if (reset.equals("n")){
+                    loop = false;
+                    end = false;
+                } else{
+                    loop = true;
+                }
+            }
+
+
+
+
 
 
 
